@@ -23,8 +23,31 @@ un formato web interactivo y responsive.
 
 ## Ejecución local
 
+
 ```bash
-git clone <repositorio>
-cd <proyecto>
-npm install
-npm run dev
+git clone https://github.com/cristobalceppi25/portafolio.git
+```
+
+Entra al proyecto:
+
+```bash
+cd portafolio
+```
+
+Instala las dependencias:
+
+```bash
+pnpm install
+```
+
+Inicia el servidor de desarrollo:
+
+```bash
+pnpm dev
+```
+
+Abre tu navegador en:
+
+```
+http://localhost:5173
+```
