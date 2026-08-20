@@ -269,7 +269,7 @@ export function Main() {
                   <a href="https://github.com/cristobalceppi25/detective-conan-quiz" rel="noopener" target="_blank">GitHub</a>
                 </div>
                 <div>
-                  <a href="https://detective-conan-quiz-xi.vercel.app/" rel="noopener" target="_blank">Ver Proyecto</a>
+                  <a href="https://detective-conan-quiz.vercel.app/" rel="noopener" target="_blank">Ver Proyecto</a>
                 </div>
               </nav>
             </article>
