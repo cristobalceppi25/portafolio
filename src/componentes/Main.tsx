@@ -96,12 +96,12 @@ export function Main() {
         <div className="aboutMeComplete">
           <div className='aboutMeLeft'>
             <div>
-              <h3 className="aboutMeProfession">Desarrollador Web React + TypeScript</h3>
+              <h3 className="aboutMeProfession">Desarrollador Web | React · TypeScript · QA & Testing</h3>
               <h1 className="aboutMeName">Cristóbal Ceppi</h1>
             </div>
-            <p className="aboutMeDescription">Soy desarrollador Front-End enfocado en React y TypeScript. Me agrada construir aplicaciones web funcionales,
-              mantenibles y con una buena experiencia de usuario. Actualmente continúo fortaleciendo mis conocimientos
-              mediante proyectos personales y busco incorporarme a un equipo donde pueda seguir creciendo profesionalmente.</p>
+            <p className="aboutMeDescription">Soy profesional con formación en programación y experiencia en desarrollo y mantenimiento de aplicaciones web. Actualmente estoy orientando mi perfil hacia QA y Testing, fortaleciendo mis conocimientos en pruebas funcionales, APIs REST, SQL y herramientas como Postman.</p>
+            <p className="aboutMeDescription">Mi experiencia en desarrollo Front-End y los proyectos que he realizado con React y TypeScript me han permitido comprender desde una perspectiva técnica cómo funcionan las aplicaciones web y sus distintas funcionalidades.</p>
+            <p className="aboutMeDescription">Actualmente busco una oportunidad como QA Trainee donde pueda aplicar mis conocimientos de programación y testing, seguir aprendiendo y desarrollarme profesionalmente en el área de calidad de software.</p>
             <div className="aboutMeLocation">
               Santiago, Chile - Disponible remoto, presencial e híbrido
             </div>
