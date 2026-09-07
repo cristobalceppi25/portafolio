@@ -19,7 +19,9 @@ import {
   LogoDescarga,
   CircleButton,
   ArrowRight,
-  ArrowLeft
+  ArrowLeft,
+  LogoPostman,
+  LogoSQL
 } from "./Icons"
 export function Main() {
 
@@ -318,6 +320,22 @@ export function Main() {
         <div className="skillsWrapper">
           <div className="individualSkill">
             <div>
+              <h3 className="individualSkillTitle">QA / Testing</h3>
+            </div>
+            <div className="skillsList">
+              <div className="individualLanguages">
+                <LogoPostman width={"3rem"} height={"3rem"} />
+                <p>Postman</p>
+              </div>
+              <div className="individualLanguages">
+                <LogoSQL width={"3rem"} height={"3rem"} />
+                <p>SQL</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="individualSkill">
+            <div>
               <h3 className="individualSkillTitle">Front-End</h3>
             </div>
             <div className="skillsList">
@@ -471,7 +489,8 @@ export function Main() {
 
       <section className="contact" id="contact">
         <h2 className="sectionTitle">Conversemos</h2>
-        <p className="contextText">Actualmente me encuentro buscando oportunidades como Desarrollador Front-End React. Si crees que mi perfil puede aportar a tu equipo, estaré encantado de conversar.</p>
+        <p className="contextText">Actualmente me encuentro buscando nuevas oportunidades en el área de QA y desarrollo de software, donde pueda aplicar mi experiencia técnica y continuar desarrollándome profesionalmente.
+          Si crees que mi perfil puede aportar a tu equipo, estaré encantado de conversar.</p>
         <div className="contactWrapper">
           <a href="mailto:cristobalceppi@gmail.com" rel="noopener" target="_blank" >
             <LogoEmail width={"1.5rem"} height={"1.5rem"} />
