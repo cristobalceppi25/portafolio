@@ -21,16 +21,17 @@ import {
   ArrowRight,
   ArrowLeft,
   LogoPostman,
-  LogoSQL
+  LogoSQL,
+  LogoPlaywright
 } from "./Icons"
 export function Main() {
 
   const certificateRef = useRef<HTMLDialogElement>(null);
   const ecommerceRef = useRef<HTMLDialogElement>(null);
-  const quizRef = useRef<HTMLDialogElement>(null);
+  const QARef = useRef<HTMLDialogElement>(null);
   const [certificate, setCertificate] = useState("");
   const [indexCommerce, setIndexCommerce] = useState(0);
-  const [indexQuiz, setIndexQuiz] = useState(0);
+  const [indexQA, setIndexQA] = useState(0);
 
 
   const openISTQB = () => {
@@ -51,26 +52,26 @@ export function Main() {
     ecommerceRef.current?.close();
   }
   const closeModalQuiz = () => {
-    quizRef.current?.close();
+    QARef.current?.close();
   }
 
   const openCarruselImagenesEcommerce = () => {
     ecommerceRef.current?.showModal();
   }
 
-  const opencarruselImagenesQuiz = () => {
-    quizRef.current?.showModal();
+  const opencarruselImagenesProyectoQA = () => {
+    QARef.current?.showModal();
   }
   const carruselImagenesEcommerce = [
     'img/Home_Ecommerce.webp',
-    '/img/Cart_Ecommerce.webp',
+    'img/Cart_Ecommerce.webp',
     'img/Checkout_Ecommerce.webp'
   ]
 
-  const carruselImagenesQuiz = [
-    'img/Home_Quiz.webp',
-    'img/Quiz_Question_Answer.webp',
-    'img/Quiz_EndCharacter.webp'
+  const carruselProyectoQA = [
+    'img/Reporte_Playwright.webp',
+    'img/Código.webp',
+    'img/Pruebas_manuales.webp'
   ]
 
   const addIndexCommerce = () => {
@@ -82,12 +83,12 @@ export function Main() {
   }
 
 
-  const addIndexQuiz = () => {
-    setIndexQuiz(indexQuiz + 1)
+  const addIndexQA = () => {
+    setIndexQA(indexQA + 1)
   }
 
-  const restIndexQuiz = () => {
-    setIndexQuiz(indexQuiz - 1)
+  const restIndexQA = () => {
+    setIndexQA(indexQA - 1)
   }
 
 
@@ -98,12 +99,11 @@ export function Main() {
         <div className="aboutMeComplete">
           <div className='aboutMeLeft'>
             <div>
-              <h3 className="aboutMeProfession">Desarrollador Web | React · TypeScript · QA & Testing</h3>
+              <h3 className="aboutMeProfession">QA & Testing | Automatización con Playwright · TypeScript</h3>
               <h1 className="aboutMeName">Cristóbal Ceppi</h1>
             </div>
-            <p className="aboutMeDescription">Soy profesional con formación en programación y experiencia en desarrollo y mantenimiento de aplicaciones web. Actualmente estoy orientando mi perfil hacia QA y Testing, fortaleciendo mis conocimientos en pruebas funcionales, APIs REST, SQL y herramientas como Postman.</p>
-            <p className="aboutMeDescription">Mi experiencia en desarrollo Front-End y los proyectos que he realizado con React y TypeScript me han permitido comprender desde una perspectiva técnica cómo funcionan las aplicaciones web y sus distintas funcionalidades.</p>
-            <p className="aboutMeDescription">Actualmente busco una oportunidad como QA Trainee donde pueda aplicar mis conocimientos de programación y testing, seguir aprendiendo y desarrollarme profesionalmente en el área de calidad de software.</p>
+            <p className="aboutMeDescription">Soy profesional con formación en programación y experiencia en desarrollo web. Actualmente estoy enfocado en QA y Testing,
+              desarrollando proyectos de pruebas funcionales y automatización con Playwright, TypeScript y Postman.</p>
             <div className="aboutMeLocation">
               Santiago, Chile - Disponible remoto, presencial e híbrido
             </div>
@@ -120,7 +120,7 @@ export function Main() {
           </div>
           <div className="aboutMeRight">
             <picture>
-              <img src="/img/cristobaCeppi.jpg" alt="Cristobal Ceppi" width="508" height="662" />
+              <img src="/img/cristobaCeppi.jpg" alt="Imagen de Cristóbal Ceppi" width="508" height="662" />
             </picture>
           </div>
         </div>
@@ -133,12 +133,67 @@ export function Main() {
         <div className="projectsWrapper">
           <div className="individualProject">
             <article>
-              <h3 className="projectName">Supermercado E-commerce</h3>
+              <h3 className="projectName">Automatización E2E Automation Labs</h3>
+              <div className="projectImageContainer">
+                <button className={indexQA === 0 ? "carruselButtonDisabled" : "carruselButton"} onClick={restIndexQA}>
+                  <ArrowLeft />
+                </button>
+                <img src={carruselProyectoQA[indexQA]} alt="Imagen de Automatización de pruebas ecommerce" className="projectImage" onClick={opencarruselImagenesProyectoQA} />
+                <button className={indexQA === carruselProyectoQA.length - 1 ? "carruselButtonDisabled" : "carruselButton"} onClick={addIndexQA}>
+                  <ArrowRight />
+                </button>
+              </div>
+              <div className="carruselButtons">
+                {
+                  carruselProyectoQA.map((_, imageIndex) => (
+                    <button key={imageIndex} onClick={() => setIndexQA(imageIndex)} className={imageIndex === indexQA ? "active" : "notActive"}>
+                      <CircleButton />
+                    </button>
+                  ))
+                }
+              </div>
+              <p className="projectDescription">Proyecto de QA enfocado en el diseño y ejecución de pruebas funcionales y la automatización de flujos de compra
+                en una aplicación ecommerce mediante Playwright y TypeScript.</p>
+              <div className="features">
+                <h4 className="projectFeature">Características</h4>
+                <ul className="featuresList">
+                  <li>Diseño y documentación de casos de prueba manuales.</li>
+                  <li>Automatización de pruebas E2E con Playwright.</li>
+                  <li>Validación de registro, autenticación, filtros, carrito y checkout.</li>
+                  <li>Identificación y documentación de defectos.</li>
+                  <li>Captura y conservación de evidencias de ejecución.</li>
+                </ul>
+              </div>
+              <div className="projectSkills">
+                <div>
+                  <h4 className="projectFeature">Tecnologías utilizadas</h4>
+                </div>
+                <div className="skillsList">
+                  <div>
+                    <LogoPlaywright width={"3rem"} height={"3rem"} />
+                    <p className="projectIndividualSkills">Playwright</p>
+                  </div>
+                  <div>
+                    <LogoTypeScript width={"3rem"} height={"3rem"} />
+                    <p className="projectIndividualSkills">TypeScript</p>
+                  </div>
+                </div>
+              </div>
+              <nav className="projectsLinks">
+                <div>
+                  <a href="https://github.com/cristobalceppi25/proyectoAutomationLabs" rel="noopener" target="_blank">GitHub</a>
+                </div>
+              </nav>
+            </article>
+          </div>
+          <div className="individualProject">
+            <article>
+              <h3 className="projectName">Supermercado ecommerce</h3>
               <div className="projectImageContainer">
                 <button className={indexCommerce === 0 ? "carruselButtonDisabled" : "carruselButton"} onClick={restIndexCommerce}>
                   <ArrowLeft />
                 </button>
-                <img src={carruselImagenesEcommerce[indexCommerce]} className="projectImage" onClick={openCarruselImagenesEcommerce} />
+                <img src={carruselImagenesEcommerce[indexCommerce]} alt="Imagen de Supermercado ecommerce" className="projectImage" onClick={openCarruselImagenesEcommerce} />
                 <button className={indexCommerce === carruselImagenesEcommerce.length - 1 ? "carruselButtonDisabled" : "carruselButton"} onClick={addIndexCommerce}>
                   <ArrowRight />
                 </button>
@@ -152,7 +207,7 @@ export function Main() {
                   ))
                 }
               </div>
-              <p className="projectDescription">Aplicación eCommerce desarrollada con React y TypeScript que permite administrar un flujo completo de compra.</p>
+              <p className="projectDescription">Aplicación ecommerce desarrollada con React y TypeScript que permite administrar un flujo completo de compra.</p>
               <div className="features">
                 <h4 className="projectFeature">Características</h4>
                 <ul className="featuresList">
@@ -166,12 +221,12 @@ export function Main() {
               </div>
               <div className="projectSkills">
                 <div>
-                  <h4 className="projectFeature">Tecnologías usadas</h4>
+                  <h4 className="projectFeature">Tecnologías utilizadas</h4>
                 </div>
                 <div className="skillsList">
                   <div>
                     <LogoHtml width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">Html</p>
+                    <p className="projectIndividualSkills">HTML</p>
                   </div>
                   <div>
                     <LogoCSS width={"3rem"} height={"3rem"} />
@@ -190,7 +245,7 @@ export function Main() {
                     <p className="projectIndividualSkills">Zod</p>
                   </div>
                   <div>
-                    <img src="/zustand-plain.svg" className="zustandImg" />
+                    <img src="/zustand-plain.svg" className="zustandImg" alt="Logo Zustand" />
                     <p className="projectIndividualSkills">Zustand</p>
                   </div>
                 </div>
@@ -201,77 +256,6 @@ export function Main() {
                 </div>
                 <div>
                   <a href="https://supermercado-ecommerce.vercel.app/" rel="noopener" target="_blank">Ver Proyecto</a>
-                </div>
-              </nav>
-            </article>
-          </div>
-          <div className="individualProject">
-            <article>
-              <h3 className="projectName">Quiz de Detective Conan</h3>
-
-              <div className="projectImageContainer">
-                <button className={indexQuiz === 0 ? "carruselButtonDisabled" : "carruselButton"} onClick={restIndexQuiz}>
-                  <ArrowLeft />
-                </button>
-                <img src={carruselImagenesQuiz[indexQuiz]} className="projectImage" onClick={opencarruselImagenesQuiz} />
-                <button className={indexQuiz === carruselImagenesQuiz.length - 1 ? "carruselButtonDisabled" : "carruselButton"} onClick={addIndexQuiz}>
-                  <ArrowRight />
-                </button>
-              </div>
-              <div className="carruselButtons">
-                {
-                  carruselImagenesQuiz.map((_, imageIndex) => (
-                    <button key={imageIndex} onClick={() => setIndexQuiz(imageIndex)} className={imageIndex === indexQuiz ? "active" : "notActive"}>
-                      <CircleButton />
-                    </button>
-                  ))
-                }
-              </div>
-              <p className="projectDescription">Aplicación web desarrollada con React y TypeScript que implementa un sistema de preguntas interactivo con gestión de estado, temporizador y resultados personalizados según el desempeño del usuario.</p>
-              <div className="features">
-                <h4 className="projectFeature">Características</h4>
-                <ul className="featuresList">
-                  <li>Sistema de preguntas interactivo.</li>
-                  <li>Temporizador por partida.</li>
-                  <li>Gestión de estado con Zustand.</li>
-                  <li>Resultados personalizados según el puntaje.</li>
-                  <li>Diseño responsive.</li>
-                  <li>Navegación entre preguntas.</li>
-                </ul>
-              </div>
-              <div className="projectSkills">
-                <div>
-                  <h4 className="projectFeature">Tecnologías usadas</h4>
-                </div>
-                <div className="skillsList">
-                  <div>
-                    <LogoHtml width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">Html</p>
-                  </div>
-                  <div>
-                    <LogoCSS width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">CSS</p>
-                  </div>
-                  <div>
-                    <LogoReact width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">React</p>
-                  </div>
-                  <div >
-                    <LogoTypeScript width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">TypeScript</p>
-                  </div>
-                  <div>
-                    <img src="/zustand-plain.svg" className="zustandImg" />
-                    <p className="projectIndividualSkills">Zustand</p>
-                  </div>
-                </div>
-              </div>
-              <nav className="projectsLinks">
-                <div>
-                  <a href="https://github.com/cristobalceppi25/detective-conan-quiz" rel="noopener" target="_blank">GitHub</a>
-                </div>
-                <div>
-                  <a href="https://detective-conan-quiz.vercel.app/" rel="noopener" target="_blank">Ver Proyecto</a>
                 </div>
               </nav>
             </article>
@@ -292,17 +276,17 @@ export function Main() {
                 <h3 className="experienceCompany">Adwise SpA</h3>
               </div>
               <div>
-                <h4 className="experiencePosition">Soporte a cliente eCommerce</h4>
+                <h4 className="experiencePosition">Soporte a cliente ecommerce</h4>
               </div>
               <div>
                 <ul className="experienceDescription">
-                  <li>Desarrollo y mantenimiento de funcionalidades para plataformas eCommerce basadas en Magento (PHP), trabajando mediante un sistema de tickets.</li>
+                  <li>Desarrollo y mantenimiento de funcionalidades para plataformas ecommerce basadas en Magento (PHP), trabajando mediante un sistema de tickets.</li>
                   <li>Optimización de interfaz y maquetación responsive, mejorando la experiencia de usuario (UX) según los requerimientos del cliente.</li>
                   <li>Gestión y actualización de contenidos en sitios WordPress, asegurando la consistencia visual e integridad del sitio.</li>
                 </ul>
               </div>
               <div className="experienceSkills">
-                <span className="experienceSkillsTitle">Wordpress</span>
+                <span className="experienceSkillsTitle">WordPress</span>
                 <span className="experienceSkillsTitle">Magento</span>
                 <span className="experienceSkillsTitle">PHP</span>
                 <span className="experienceSkillsTitle">HTML</span>
@@ -320,12 +304,38 @@ export function Main() {
         <div className="skillsWrapper">
           <div className="individualSkill">
             <div>
-              <h3 className="individualSkillTitle">QA / Testing</h3>
+              <h3 className="individualSkillTitle">Testing</h3>
             </div>
             <div className="skillsList">
               <div className="individualLanguages">
+                <LogoPlaywright width={"3rem"} height={"3rem"} />
+                <p>Playwright</p>
+              </div>
+              <div className="individualLanguages">
                 <LogoPostman width={"3rem"} height={"3rem"} />
                 <p>Postman</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="individualSkill">
+              <div >
+                <h3 className="individualSkillTitle">Certificados</h3>
+              </div>
+              <div className="skillsList">
+                <div className="certificate">
+                  <LogoCertificado width={"3rem"} height={"3rem"} />
+                  <a onClick={openISTQB}>ISTQB® Certified Tester Foundation Level (CTFL)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="individualSkill">
+              <div >
+                <h3 className="individualSkillTitle">Base de datos</h3>
               </div>
               <div className="individualLanguages">
                 <LogoSQL width={"3rem"} height={"3rem"} />
@@ -376,7 +386,7 @@ export function Main() {
                 <p>React Hook Form</p>
               </div>
               <div className="individualLanguages">
-                <img src="/zustand-plain.svg" className="zustandImg" />
+                <img src="/zustand-plain.svg" className="zustandImg" alt="Logo Zustand" />
                 <p>Zustand</p>
               </div>
               <div className="individualLanguages">
@@ -398,15 +408,17 @@ export function Main() {
                 </div>
                 <div className="individualLanguages">
                   <LogoGitHub width={"3rem"} height={"3rem"} />
-                  <p>Github</p>
+                  <p>GitHub</p>
                 </div>
                 <div className="individualLanguages">
                   <LogoWordpress width={"3rem"} height={"3rem"} />
-                  <p>Wordpress</p>
+                  <p>WordPress</p>
                 </div>
               </div>
             </div>
           </div>
+
+
 
           <div>
             <div className="individualSkill">
@@ -420,25 +432,13 @@ export function Main() {
                 </div>
                 <div className="certificate">
                   <LogoIngles width={"3rem"} height={"3rem"} />
-                  <a onClick={openEnglish}>Inglés(C2)</a>
+                  <a onClick={openEnglish}>Inglés (C2)</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div>
-            <div className="individualSkill">
-              <div >
-                <h3 className="individualSkillTitle">Certificados</h3>
-              </div>
-              <div className="skillsList">
-                <div className="certificate">
-                  <LogoCertificado width={"3rem"} height={"3rem"} />
-                  <a onClick={openISTQB}>ISTQB® Certified Tester Foundation Level (CTFL)</a>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -454,7 +454,7 @@ export function Main() {
       <dialog ref={ecommerceRef} className="dialogCarrusel">
         <div className="dialogContentCarrusel">
           <img src={carruselImagenesEcommerce[indexCommerce]}
-            alt="Certificado"
+            alt="Imagenes Proyecto supermercado ecommerce"
             className="dialogImageCarrusel" />
           <button onClick={closeModalEcommerce} className="dialogCloseCarrusel">X</button>
         </div>
@@ -469,17 +469,17 @@ export function Main() {
         </div>
       </dialog>
 
-      <dialog ref={quizRef} className="dialogCarrusel">
+      <dialog ref={QARef} className="dialogCarrusel">
         <div className="dialogContentCarrusel">
-          <img src={carruselImagenesQuiz[indexQuiz]}
-            alt="Certificado"
+          <img src={carruselProyectoQA[indexQA]}
+            alt="Imagenes Proyecto QA"
             className="dialogImageCarrusel" />
           <button onClick={closeModalQuiz} className="dialogCloseCarrusel">X</button>
         </div>
         <div className="dialogCarruselButtons">
           {
-            carruselImagenesQuiz.map((_, imageIndex) => (
-              <button key={imageIndex} onClick={() => setIndexQuiz(imageIndex)} className={imageIndex === indexQuiz ? "dialogActive" : "notActive"}>
+            carruselProyectoQA.map((_, imageIndex) => (
+              <button key={imageIndex} onClick={() => setIndexQA(imageIndex)} className={imageIndex === indexQA ? "dialogActive" : "notActive"}>
                 <CircleButton />
               </button>
             ))
@@ -489,7 +489,7 @@ export function Main() {
 
       <section className="contact" id="contact">
         <h2 className="sectionTitle">Conversemos</h2>
-        <p className="contextText">Actualmente me encuentro buscando nuevas oportunidades en el área de QA y desarrollo de software, donde pueda aplicar mi experiencia técnica y continuar desarrollándome profesionalmente.
+        <p className="contextText">Actualmente busco oportunidades en el área de QA y Testing, donde pueda aplicar mis conocimientos de programación y testing, aportar al equipo y continuar desarrollándome profesionalmente.
           Si crees que mi perfil puede aportar a tu equipo, estaré encantado de conversar.</p>
         <div className="contactWrapper">
           <a href="mailto:cristobalceppi@gmail.com" rel="noopener" target="_blank" >
@@ -502,7 +502,7 @@ export function Main() {
           </a>
           <a href="https://github.com/cristobalceppi25" target="_blank" rel="noopener noreferrer">
             <LogoGitHub width={"1.5rem"} height={"1.5rem"} />
-            Github
+            GitHub
           </a>
         </div>
         <footer className="mainFooter">
