@@ -27,20 +27,20 @@ import {
 export function Main() {
 
   const certificateRef = useRef<HTMLDialogElement>(null);
-  const ecommerceRef = useRef<HTMLDialogElement>(null);
+  const APIQARef = useRef<HTMLDialogElement>(null);
   const QARef = useRef<HTMLDialogElement>(null);
   const [certificate, setCertificate] = useState("");
-  const [indexCommerce, setIndexCommerce] = useState(0);
+  const [indexAPIQA, setIndexAPIQA] = useState(0);
   const [indexQA, setIndexQA] = useState(0);
 
 
   const openISTQB = () => {
-    setCertificate("/img/certificado_ISTQB.jpg");
+    setCertificate("img/certificado_ISTQB.jpg");
     certificateRef.current?.showModal();
   };
 
   const openEnglish = () => {
-    setCertificate("/img/certificado_inglés.jpg");
+    setCertificate("img/certificado_inglés.jpg");
     certificateRef.current?.showModal();
   };
 
@@ -49,23 +49,23 @@ export function Main() {
   }
 
   const closeModalEcommerce = () => {
-    ecommerceRef.current?.close();
+    APIQARef.current?.close();
   }
   const closeModalQuiz = () => {
     QARef.current?.close();
   }
 
   const openCarruselImagenesEcommerce = () => {
-    ecommerceRef.current?.showModal();
+    APIQARef.current?.showModal();
   }
 
   const opencarruselImagenesProyectoQA = () => {
     QARef.current?.showModal();
   }
-  const carruselImagenesEcommerce = [
-    'img/Home_Ecommerce.webp',
-    'img/Cart_Ecommerce.webp',
-    'img/Checkout_Ecommerce.webp'
+  const carruselProyectoAPIQA = [
+    'img/pruebas_manuales_API.webp',
+    'img/pruebas_Postman.webp',
+    'img/codigo_pruebas_API.webp'
   ]
 
   const carruselProyectoQA = [
@@ -74,12 +74,12 @@ export function Main() {
     'img/Pruebas_manuales.webp'
   ]
 
-  const addIndexCommerce = () => {
-    setIndexCommerce(indexCommerce + 1)
+  const addIndexAPIQA = () => {
+    setIndexAPIQA(indexAPIQA + 1)
   }
 
-  const restIndexCommerce = () => {
-    setIndexCommerce(indexCommerce - 1)
+  const restAPIQA = () => {
+    setIndexAPIQA(indexAPIQA - 1)
   }
 
 
@@ -99,7 +99,7 @@ export function Main() {
         <div className="aboutMeComplete">
           <div className='aboutMeLeft'>
             <div>
-              <h3 className="aboutMeProfession">QA & Testing | Automatización con Playwright · TypeScript</h3>
+              <h3 className="aboutMeProfession">QA & Testing | Automatización con Playwright · TypeScript · Postman</h3>
               <h1 className="aboutMeName">Cristóbal Ceppi</h1>
             </div>
             <p className="aboutMeDescription">Soy profesional con formación en programación y experiencia en desarrollo web. Actualmente estoy enfocado en QA y Testing,
@@ -112,7 +112,7 @@ export function Main() {
                 <LogoEmail width="1.5rem" height="1.5rem" />
                 Hablemos
               </a>
-              <a href="/upload/CV_Cristóbal_Ceppi.pdf" className="downloadCV" rel="noopener" target="_blank">
+              <a href="upload/CV_Cristóbal_Ceppi.pdf" className="downloadCV" rel="noopener" target="_blank">
                 <LogoDescarga width="1.5rem" height="1.5rem" />
                 Descargar CV
               </a>
@@ -120,7 +120,7 @@ export function Main() {
           </div>
           <div className="aboutMeRight">
             <picture>
-              <img src="/img/cristobaCeppi.jpg" alt="Imagen de Cristóbal Ceppi" width="508" height="662" />
+              <img src="img/cristobaCeppi.jpg" alt="Imagen de Cristóbal Ceppi" width="508" height="662" />
             </picture>
           </div>
         </div>
@@ -188,35 +188,40 @@ export function Main() {
           </div>
           <div className="individualProject">
             <article>
-              <h3 className="projectName">Supermercado ecommerce</h3>
+              <h3 className="projectName">Automation Labs – API Testing</h3>
               <div className="projectImageContainer">
-                <button className={indexCommerce === 0 ? "carruselButtonDisabled" : "carruselButton"} onClick={restIndexCommerce}>
+                <button className={indexAPIQA === 0 ? "carruselButtonDisabled" : "carruselButton"} onClick={restAPIQA}>
                   <ArrowLeft />
                 </button>
-                <img src={carruselImagenesEcommerce[indexCommerce]} alt="Imagen de Supermercado ecommerce" className="projectImage" onClick={openCarruselImagenesEcommerce} />
-                <button className={indexCommerce === carruselImagenesEcommerce.length - 1 ? "carruselButtonDisabled" : "carruselButton"} onClick={addIndexCommerce}>
+                <img src={carruselProyectoAPIQA[indexAPIQA]} alt="Imagen de Automatización de pruebas con Postman y Playwright" className="projectImage" onClick={openCarruselImagenesEcommerce} />
+                <button className={indexAPIQA === carruselProyectoAPIQA.length - 1 ? "carruselButtonDisabled" : "carruselButton"} onClick={addIndexAPIQA}>
                   <ArrowRight />
                 </button>
               </div>
               <div className="carruselButtons">
                 {
-                  carruselImagenesEcommerce.map((_, imageIndex) => (
-                    <button key={imageIndex} onClick={() => setIndexCommerce(imageIndex)} className={imageIndex === indexCommerce ? "active" : "notActive"}>
+                  carruselProyectoAPIQA.map((_, imageIndex) => (
+                    <button key={imageIndex} onClick={() => setIndexAPIQA(imageIndex)} className={imageIndex === indexAPIQA ? "active" : "notActive"}>
                       <CircleButton />
                     </button>
                   ))
                 }
               </div>
-              <p className="projectDescription">Aplicación ecommerce desarrollada con React y TypeScript que permite administrar un flujo completo de compra.</p>
+              <p className="projectDescription">Proyecto de QA enfocado en la exploración, documentación y automatización de pruebas de una API REST de e-commerce, utilizando Postman, Playwright y TypeScript.</p>
               <div className="features">
                 <h4 className="projectFeature">Características</h4>
                 <ul className="featuresList">
-                  <li>Catálogo de productos.</li>
-                  <li>Carrito de compras con Zustand.</li>
-                  <li>Checkout hecho con React Hook Form y validado con Zod.</li>
-                  <li>Diseño responsive.</li>
-                  <li>Paginación.</li>
-                  <li>Búsqueda dinámica.</li>
+                  <li>Exploración de endpoints y documentación del comportamiento de la API.</li>
+                  <li>Diseño de casos de prueba funcionales, positivos y negativos.</li>
+                  <li>Automatización de 16 pruebas de autenticación, registro y gestión de tokens con Playwright.</li>
+                  <li>Validación de códigos HTTP, estructuras JSON, datos y mensajes de error.</li>
+                </ul>
+              </div>
+              <div className="features">
+                <h4 className="projectFeature">En desarrollo:</h4>
+                <ul className="todoList">
+                  <li>Ampliación de la cobertura automatizada.</li>
+                  <li>Integración de ejecución continua mediante GitHub Actions.</li>
                 </ul>
               </div>
               <div className="projectSkills">
@@ -225,31 +230,20 @@ export function Main() {
                 </div>
                 <div className="skillsList">
                   <div>
-                    <LogoHtml width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">HTML</p>
+                    <LogoPostman width={"3rem"} height={"3rem"} />
+                    <p className="projectIndividualSkills">Postman</p>
                   </div>
                   <div>
-                    <LogoCSS width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">CSS</p>
-                  </div>
-                  <div>
-                    <LogoReact width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">React</p>
+                    <LogoPlaywright width={"3rem"} height={"3rem"} />
+                    <p className="projectIndividualSkills">Playwright</p>
                   </div>
                   <div>
                     <LogoTypeScript width={"3rem"} height={"3rem"} />
                     <p className="projectIndividualSkills">TypeScript</p>
                   </div>
-                  <div>
-                    <LogoZod width={"3rem"} height={"3rem"} />
-                    <p className="projectIndividualSkills">Zod</p>
-                  </div>
-                  <div>
-                    <img src="/zustand-plain.svg" className="zustandImg" alt="Logo Zustand" />
-                    <p className="projectIndividualSkills">Zustand</p>
-                  </div>
                 </div>
               </div>
+
               <nav className="projectsLinks">
                 <div>
                   <a href="https://github.com/cristobalceppi25/supermercado-ecommerce" rel="noopener" target="_blank">GitHub</a>
@@ -451,17 +445,17 @@ export function Main() {
         </div>
       </dialog>
 
-      <dialog ref={ecommerceRef} className="dialogCarrusel">
+      <dialog ref={APIQARef} className="dialogCarrusel">
         <div className="dialogContentCarrusel">
-          <img src={carruselImagenesEcommerce[indexCommerce]}
-            alt="Imagenes Proyecto supermercado ecommerce"
+          <img src={carruselProyectoAPIQA[indexAPIQA]}
+            alt="Imagenes Proyecto API QA"
             className="dialogImageCarrusel" />
           <button onClick={closeModalEcommerce} className="dialogCloseCarrusel">X</button>
         </div>
         <div className="dialogCarruselButtons">
           {
-            carruselImagenesEcommerce.map((_, imageIndex) => (
-              <button key={imageIndex} onClick={() => setIndexCommerce(imageIndex)} className={imageIndex === indexCommerce ? "dialogActive" : "notActive"}>
+            carruselProyectoAPIQA.map((_, imageIndex) => (
+              <button key={imageIndex} onClick={() => setIndexAPIQA(imageIndex)} className={imageIndex === indexAPIQA ? "dialogActive" : "notActive"}>
                 <CircleButton />
               </button>
             ))
