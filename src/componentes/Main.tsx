@@ -64,8 +64,8 @@ export function Main() {
   }
   const carruselProyectoAPIQA = [
     'img/pruebas_manuales_API.webp',
-    'img/pruebas_Postman.webp',
-    'img/codigo_pruebas_API.webp'
+    'img/Reporte_postman.webp',
+    'img/reporte_playwright_api.webp'
   ]
 
   const carruselProyectoQA = [
@@ -133,7 +133,7 @@ export function Main() {
         <div className="projectsWrapper">
           <div className="individualProject">
             <article>
-              <h3 className="projectName">Automatización E2E Automation Labs</h3>
+              <h3 className="projectName">Automatización E2E – Automation Labs</h3>
               <div className="projectImageContainer">
                 <button className={indexQA === 0 ? "carruselButtonDisabled" : "carruselButton"} onClick={restIndexQA}>
                   <ArrowLeft />
@@ -152,16 +152,16 @@ export function Main() {
                   ))
                 }
               </div>
-              <p className="projectDescription">Proyecto de QA enfocado en el diseño y ejecución de pruebas funcionales y la automatización de flujos de compra
-                en una aplicación ecommerce mediante Playwright y TypeScript.</p>
+              <p className="projectDescription">Proyecto de QA enfocado en el diseño, ejecución y automatización de pruebas funcionales sobre una aplicación ecommerce,
+                utilizando Playwright y TypeScript.</p>
               <div className="features">
-                <h4 className="projectFeature">Características</h4>
+                <h4 className="projectFeature">Alcance del proyecto</h4>
                 <ul className="featuresList">
-                  <li>Diseño y documentación de casos de prueba manuales.</li>
-                  <li>Automatización de pruebas E2E con Playwright.</li>
-                  <li>Validación de registro, autenticación, filtros, carrito y checkout.</li>
-                  <li>Identificación y documentación de defectos.</li>
-                  <li>Captura y conservación de evidencias de ejecución.</li>
+                  <li>Diseño y documentación de 61 casos de prueba manuales, incluyendo escenarios positivos y negativos.</li>
+                  <li>Automatización de 58 pruebas E2E con Playwright y TypeScript.</li>
+                  <li>Cobertura de los flujos de registro, autenticación, filtros de productos, carrito de compras y checkout.</li>
+                  <li>Identificación y documentación de defectos durante la ejecución de las pruebas.</li>
+                  <li>Conservación de evidencias mediante capturas de pantalla, reportes de Playwright y trazas.</li>
                 </ul>
               </div>
               <div className="projectSkills">
@@ -207,20 +207,22 @@ export function Main() {
                   ))
                 }
               </div>
-              <p className="projectDescription">Proyecto de QA enfocado en la exploración, documentación y automatización de pruebas de una API REST de e-commerce, utilizando Postman, Playwright y TypeScript.</p>
+              <p className="projectDescription">Proyecto de QA enfocado en la exploración, documentación y testing de APIs REST de una aplicación ecommerce,
+                utilizando Postman, Playwright y TypeScript.</p>
               <div className="features">
-                <h4 className="projectFeature">Características</h4>
+                <h4 className="projectFeature">Alcance del proyecto</h4>
                 <ul className="featuresList">
-                  <li>Exploración de endpoints y documentación del comportamiento de la API.</li>
-                  <li>Diseño de casos de prueba funcionales, positivos y negativos.</li>
-                  <li>Automatización de 16 pruebas de autenticación, registro y gestión de tokens con Playwright.</li>
-                  <li>Validación de códigos HTTP, estructuras JSON, datos y mensajes de error.</li>
+                  <li>Exploración y documentación de endpoints REST de los módulos de autenticación (Auth), usuarios (Users) y productos (Products).</li>
+                  <li>Diseño y documentación de 51 casos de prueba funcionales, incluyendo escenarios positivos y negativos.</li>
+                  <li>Implementación y ejecución de los 51 casos de prueba mediante Postman y Playwright.</li>
+                  <li>Validación de códigos de estado HTTP, estructuras JSON, propiedades, tipos de datos, validaciones de entrada y manejo de errores</li>
+                  <li>Automatización de pruebas de autenticación y gestión de tokens con Playwright y TypeScript.</li>
+                  <li>Conservación de evidencias de ejecución mediante capturas de pantalla y resultados de pruebas.</li>
                 </ul>
               </div>
               <div className="features">
                 <h4 className="projectFeature">En desarrollo:</h4>
                 <ul className="todoList">
-                  <li>Ampliación de la cobertura automatizada.</li>
                   <li>Integración de ejecución continua mediante GitHub Actions.</li>
                 </ul>
               </div>
@@ -247,9 +249,6 @@ export function Main() {
               <nav className="projectsLinks">
                 <div>
                   <a href="https://github.com/cristobalceppi25/supermercado-ecommerce" rel="noopener" target="_blank">GitHub</a>
-                </div>
-                <div>
-                  <a href="https://supermercado-ecommerce.vercel.app/" rel="noopener" target="_blank">Ver Proyecto</a>
                 </div>
               </nav>
             </article>
